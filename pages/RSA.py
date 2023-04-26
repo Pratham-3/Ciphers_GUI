@@ -39,8 +39,8 @@ def app():
         #   check_p = prime_check(p)
         #    check_q = prime_check(q)
         else:
-            st.success('Entered Numbers are Prime')
-            with st.sidebar:
+                st.success('Entered Numbers are Prime')
+
                 # RSA Modulus
                 # '''CALCULATION OF RSA MODULUS 'n'.'''
                 n = p * q
