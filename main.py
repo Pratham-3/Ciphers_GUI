@@ -6,6 +6,10 @@ def app():
         page_title='Cyber Sec',
         page_icon='👾',
     )
+    '''
+    Welcome To The Ciphers Calculator App
+    '''
+    st.caption("©️ Pratham Sharma 2023")
 
 
 if __name__ == '__main__':
