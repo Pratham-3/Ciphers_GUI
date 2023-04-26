@@ -25,10 +25,11 @@ def primitive_check(g, p, L):
 
 
 def app():
+    st.header("Diffie-Hellman")
     l = []
     count = 1
 
-    P = st.number_input(f"Enter P : ")
+    P = st.number_input(f"Enter a prime number P : ")
 
     P = int(P)
     if P:
