@@ -1,3 +1,4 @@
+import streamlit as st
 import base64
 
 
@@ -43,20 +44,23 @@ def initial_permutation_inv(block):
     return plaintext
 
 
-print("ENTER PLAIN TEXT")
-plain = input()
-bas64, string64 = bit64(plain)
-IP_input = "".join(["{:08b}".format(x) for x in bas64])
-IP_input = IP_input[:64]
-print(string64)
-print(IP_input)
-permuted_text = initial_permutation(IP_input)
-print(permuted_text)
-print(initial_permutation_inv(permuted_text))
-
-
 def app():
-    pass
+    st.title('DES Cipher')
+    #print("ENTER PLAIN TEXT")
+    plain = st.text_input('Enter Plain Text')
+    if plain:
+        bas64, string64 = bit64(plain)
+        IP_input = "".join(["{:08b}".format(x) for x in bas64])
+        IP_input = IP_input[:64]
+        st.write(string64)
+        st.write(IP_input)
+        permuted_text = initial_permutation(IP_input)
+        st.write(permuted_text)
+        st.write(initial_permutation_inv(permuted_text))
+
+
+#def app():
+    #pass
 
 
 if __name__ == '__main__':
