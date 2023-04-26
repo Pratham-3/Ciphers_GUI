@@ -1,3 +1,5 @@
+import streamlit as st
+
 def railfence(PT):
     rail = [['\n' for i in range(len(PT))]
             for j in range(2)]
@@ -14,13 +16,16 @@ def railfence(PT):
             row += 1
         else:
             row -= 1
-    print(rail)
+    st.subheader('Rail Fence')
+    for i in rail:
+        st.markdown(i)
     result = []
     for i in range(2):
         for j in range(len(PT)):
             if rail[i][j] != '\n':
                 result.append(rail[i][j])
-    print(result)
+    st.subheader('Result')
+    st.markdown(result)
     return "".join(result)
 
 
@@ -71,16 +76,18 @@ def derailfence(CT):
     return "".join(result)
 
 
-if __name__ == "__main__":
-    print("enter the plain text:")
-    plaintext = input()
-    ciphertext = railfence(plaintext)
-    print("cipher text:", ciphertext)
-    print("decrypted text:", derailfence(ciphertext))
-
-
 def app():
-    pass
+    st.title('Rail Fence Cipher')
+    plaintext = st.text_input("enter the plain text:")
+    if plaintext:
+        ciphertext = railfence(plaintext)
+        col1, col2 = st.columns([1, 1])
+        col1.header('Encryption')
+        text = f"cipher text: {ciphertext}"
+        col1.success(text)
+        col2.header('Decryption')
+        text = f"decrypted text: {derailfence(ciphertext)}"
+        col2.success(text)
 
 
 if __name__ == '__main__':
