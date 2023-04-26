@@ -1,11 +1,15 @@
 import numpy as np
+import streamlit as st
 
 
 def encrypt(plaintext, key):
     PT_matrix = [[(ord(ch) - 97) % 26] for ch in plaintext]
-    print(PT_matrix)
+    col1, col2 = st.columns([1, 1])
+    col1.subheader('Plain Text Matrix')
+    col1.markdown(PT_matrix)
     key_matrix = [[(ord(ch) - 97) % 26] for ch in key]
-    print(key_matrix)
+    col2.subheader('Key Matrix')
+    col2.markdown(key_matrix)
 
     CT_matrix = [[0 for i in range(len(PT_matrix[0]))] for j in range(len(key_matrix))]
     for i in range(len(key_matrix)):
@@ -31,19 +35,19 @@ def decrypt(ciphertext, key_matrix):
     return ciphertext
 
 
-print("enter plain text")
-PT = input()
-print("enter key")
-Key = input()
-cipher, ciphertext, key_matrix = encrypt(PT, Key)
-print("encrypted text:", cipher)
+def app():
+    # print("enter plain text")
+    st.title('Hill Cipher')
+    PT = st.text_input('Enter Plain Text')
+    # print("enter key")
+    Key = st.text_input('Enter Key')
+    if PT and Key:
+        cipher, ciphertext, key_matrix = encrypt(PT, Key)
+        text = f"encrypted text: {cipher}"
+        st.success(text)
 
 
 # print("Decrypted or original text:", decrypt(ciphertext, key_matrix))
-
-
-def app():
-    pass
 
 
 if __name__ == '__main__':
