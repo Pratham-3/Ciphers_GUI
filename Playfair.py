@@ -1,3 +1,5 @@
+import streamlit as st
+
 def create_matrix(plaintext, key):
     matrix = [['*'] * 5 for _ in range(5)]
     key = key.replace(" ", "")
@@ -52,17 +54,16 @@ def encryption(plaintext, key_matrix):
     return ciphertext
 
 
-print("enter plain text:")
-PT = input()
-print("enter the key:")
-keyword = input()
-key_matrix = create_matrix(PT, keyword)
-print(key_matrix)
-print("the encrypted text is:", encryption(PT, key_matrix))
-
-
 def app():
-    pass
+    st.title('Playfair Cipher')
+    PT = st.text_input("enter plain text:")
+    keyword = st.text_input("enter the key:")
+    if PT and keyword:
+        key_matrix = create_matrix(PT, keyword)
+        st.header('Key Matrix')
+        st.markdown(key_matrix)
+        text = f"the encrypted text is: {encryption(PT, key_matrix)}"
+        st.success(text)
 
 
 if __name__ == '__main__':
