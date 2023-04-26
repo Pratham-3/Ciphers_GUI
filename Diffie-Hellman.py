@@ -58,3 +58,11 @@ if k1 == k2:
     print("Keys Have Been Exchanged Successfully")
 else:
     print("Keys Have Not Been Exchanged Successfully")
+
+
+def app():
+    pass
+
+
+if __name__ == '__main__':
+    app()

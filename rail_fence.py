@@ -77,3 +77,11 @@ if __name__ == "__main__":
     ciphertext = railfence(plaintext)
     print("cipher text:", ciphertext)
     print("decrypted text:", derailfence(ciphertext))
+
+
+def app():
+    pass
+
+
+if __name__ == '__main__':
+    app()

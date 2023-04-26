@@ -7,9 +7,7 @@ def bit64(PT):
     return b, base64_str
 
 
-
 def initial_permutation(plaintext):
-
     initial_permutation_table = [
         58, 50, 42, 34, 26, 18, 10, 2,
         60, 52, 44, 36, 28, 20, 12, 4,
@@ -55,3 +53,11 @@ print(IP_input)
 permuted_text = initial_permutation(IP_input)
 print(permuted_text)
 print(initial_permutation_inv(permuted_text))
+
+
+def app():
+    pass
+
+
+if __name__ == '__main__':
+    app()

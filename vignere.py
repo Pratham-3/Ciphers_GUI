@@ -13,8 +13,8 @@ def generateKey(string, key):
 def cipherText(string, key):
     cipher_text = []
     for i in range(len(string)):
-        x = ((ord(string[i])-97) +
-             (ord(key[i])-97)) % 26
+        x = ((ord(string[i]) - 97) +
+             (ord(key[i]) - 97)) % 26
         x += 97
         cipher_text.append(chr(x))
     return "".join(cipher_text)
@@ -39,3 +39,11 @@ key = generateKey(string, keyword)
 cipher_text = cipherText(string, key)
 print("Ciphertext :", cipher_text)
 print("Original/Decrypted Text :", originalText(cipher_text, key))
+
+
+def app():
+    pass
+
+
+if __name__ == '__main__':
+    app()

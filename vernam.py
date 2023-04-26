@@ -36,3 +36,11 @@ print("Plaintext:", plain_text)
 print("Key:", key)
 print("Ciphertext:", cipher_text)
 print("Decrypted Text:", decrypted_text)
+
+
+def app():
+    pass
+
+
+if __name__ == '__main__':
+    app()

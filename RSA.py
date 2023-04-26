@@ -1,6 +1,5 @@
 import math
 
-
 # Input Prime Numbers
 print("PLEASE ENTER THE 'p' AND 'q' VALUES BELOW:")
 p = int(input("Enter a prime number for p: "))
@@ -56,8 +55,8 @@ def eugcd(e, r):
     for i in range(1, r):
         while (e != 0):
             a, b = r // e, r % e
-            #if (b != 0):
-               #print("%d = %d*(%d) + %d" % (r, a, e, b))
+            # if (b != 0):
+            # print("%d = %d*(%d) + %d" % (r, a, e, b))
             r = e
             e = b
 
@@ -69,7 +68,7 @@ def eea(a, b):
     else:
         gcd, s, t = eea(b, a % b)
         s = s - ((a // b) * t)
-        #print("%d = %d*(%d) + (%d)*(%d)" % (gcd, a, t, s, b))
+        # print("%d = %d*(%d) + (%d)*(%d)" % (gcd, a, t, s, b))
         return (gcd, t, s)
 
 
@@ -79,10 +78,10 @@ def mult_inv(e, r):
     if (gcd != 1):
         return None
     else:
-        #if (s < 0):
-            #print("s=%d. Since %d is less than 0, s = s(modr), i.e., s=%d." % (s, s, s % r))
-        #elif (s > 0):
-            #print("s=%d." % (s))
+        # if (s < 0):
+        # print("s=%d. Since %d is less than 0, s = s(modr), i.e., s=%d." % (s, s, s % r))
+        # elif (s > 0):
+        # print("s=%d." % (s))
         return s % r
 
 
@@ -92,7 +91,6 @@ for i in range(1, 1000):
     if (egcd(i, r) == 1):
         e = i
 print("The value of e is:", e)
-
 
 # d, Private and Public Keys
 '''CALCULATION OF 'd', PRIVATE KEY, AND PUBLIC KEY.'''
@@ -107,7 +105,6 @@ public = (e, n)
 private = (d, n)
 print("Private Key is:", private)
 print("Public Key is:", public)
-
 
 # Encryption
 '''ENCRYPTION ALGORITHM.'''
@@ -165,3 +162,11 @@ elif (choose == '2'):
     print("Your decrypted message is:", decrypt(private, message))
 else:
     print("You entered the wrong option.")
+
+
+def app():
+    pass
+
+
+if __name__ == '__main__':
+    app()
