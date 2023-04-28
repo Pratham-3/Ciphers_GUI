@@ -254,7 +254,9 @@ def encrypt(pt, rkb, rk):
     return cipher_text
 
 
-pt = "123456ABCD132536"
+pt = st.text_input("Enter your message here (should be of 16 characters):")
+if len(pt) < 16:
+    st.error("message should be of 16 characters")
 ORG_key = "AABB09182736CCDD"
 
 # Key generation
@@ -316,14 +318,15 @@ def app():
     st.write("Plaintext:", pt)
     st.write("Key:", ORG_key)
     st.subheader("Encryption")
-    cipher_text = bin2hex(encrypt(pt, rkb, rk))
-    st.write("Cipher Text : ", cipher_text)
+    if pt:
+        cipher_text = bin2hex(encrypt(pt, rkb, rk))
+        st.write("Cipher Text : ", cipher_text)
 
-    st.subheader("Decryption")
-    rkb_rev = rkb[::-1]
-    rk_rev = rk[::-1]
-    text = bin2hex(encrypt(cipher_text, rkb_rev, rk_rev))
-    st.write("Plain Text : ", text)
+        st.subheader("Decryption")
+        rkb_rev = rkb[::-1]
+        rk_rev = rk[::-1]
+        text = bin2hex(encrypt(cipher_text, rkb_rev, rk_rev))
+        st.write("Plain Text : ", text)
 
 
 # def app():
