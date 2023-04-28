@@ -254,7 +254,7 @@ def encrypt(pt, rkb, rk):
     return cipher_text
 
 
-pt = st.text_input("Enter your message here (should be of 16 characters):")
+pt = st.text_input("Enter your message here (in Hexa):")
 if len(pt) < 16:
     st.error("message should be of 16 characters")
 ORG_key = "AABB09182736CCDD"
